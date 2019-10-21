@@ -71,11 +71,11 @@ Use `raspi-config` in console or the graphical counterpart for the following set
   - set your locales as you need it
 
 ### Configure WiFi-AP
-*<pending>*
+*\<pending\>*
 
 
 ### Configure LXDE/Chromium to autostart in kiosk-mode
-*<pending>*
+*\<pending\>*
 
 
 ## Node-Red
@@ -83,7 +83,7 @@ The Node-RED Dashboard will be used to let the players control some basic A/V-se
 
 ### Setup WiFi controls
 Activate AP-mode if no known AP is nearby
-*<pending>*
+*\<pending\>*
 
 
 Nodes to scan for WiFi-AP's and adding a new Accespoint to wpa_supplicant.conf:
@@ -102,4 +102,4 @@ Nodes to control contrast/brightness/saturation/sharpness as well as image rotat
 
 ### Misc controls
 Shutdown or restart the Pi
-*<pending>*
+*\<pending\>*
