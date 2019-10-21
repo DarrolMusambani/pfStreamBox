@@ -27,8 +27,10 @@ Zusätzliche Software installieren:
 
 Anschließend *dnsmasq* und *hostapd* Services deaktivieren:
 
-`systemctl disable dnsmasq
-systemctl disable hostapd`
+```
+systemctl disable dnsmasq
+systemctl disable hostapd
+```
 
 # Konfiguration
 
