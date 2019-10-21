@@ -32,6 +32,12 @@ systemctl disable dnsmasq
 systemctl disable hostapd
 ```
 
+Node-RED mit dem Installationsskript von [nodered.org](https://nodered.org/docs/getting-started/raspberrypi) installieren.
+
+`bash <(curl -sL https://raw.githubusercontent.com/node-red/linux-installers/master/deb/update-nodejs-and-nodered)`
+
+Das Package *node-red-dashboard* über `Menu - Manage palette` installieren.
+
 # Konfiguration
 
 ## RaspberryPi
