@@ -102,4 +102,5 @@ Nodes to control contrast/brightness/saturation/sharpness as well as image rotat
 
 ### Misc controls
 Shutdown or restart the Pi
+
 *\<pending\>*
