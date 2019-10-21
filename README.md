@@ -1,12 +1,12 @@
 # pfStreamBox
 
-Installationsanweisung und Konfigurationsbackup für einen Jitsi-Client zur Übertragung von Pathfinder-Sessions.
+Set up a Raspberry Pi to stream your Pen&Paper-Sessions to distant Players.
 
 
 ## Hardware
 - Raspberry Pi 4, 4GB
 - Raspi-Cam V2
-- USB-Mikrofon
+- USB-Microphone
 
 ## Software
 - OS: Raspian Buster
@@ -18,28 +18,62 @@ Installationsanweisung und Konfigurationsbackup für einen Jitsi-Client zur Übe
 - hostapd
 
 # Installation
-Image "Raspbian Buster with desktop" von RaspberryPi.org beziehen und auf die SD-Karte bringen. SD-Karte einlegen, System starten und mit dem Internet verbinden.
-Anschließend das System aktualisieren.
+Get a fresh "Raspbian Buster with desktop"-image from [RaspberryPi.org](https://www.raspberrypi.org/downloads/raspbian/) and flash it to your sd-card.
+Put it into your RaspberryPi, boot up and connect it to the internet. Also change the default-password.
 
-Zusätzliche Software installieren:
+Now man yourself up and run console commands as root:
+`sudo su`
 
-`apt-get install -y unclutter dnsmasq hostapd`
-
-Anschließend *dnsmasq* und *hostapd* Services deaktivieren:
-
+Update your RaspberryPi:
 ```
-systemctl disable dnsmasq
-systemctl disable hostapd
+apt-get update
+apt-get upgrade
 ```
 
-Node-RED mit dem Installationsskript von [nodered.org](https://nodered.org/docs/getting-started/raspberrypi) installieren.
+Install Node-RED using the provided install-script from [nodered.org](https://nodered.org/docs/getting-started/raspberrypi). This must be done as pi so type `exit` if you're currently runnig as root.
 
 `bash <(curl -sL https://raw.githubusercontent.com/node-red/linux-installers/master/deb/update-nodejs-and-nodered)`
 
-Das Package *node-red-dashboard* über `Menu - Manage palette` installieren.
+Install the package *node-red-dashboard* via `Menu - Manage palette` in Node-RED.
 
-# Konfiguration
+Install additional software:
+
+`apt-get install -y unclutter dnsmasq hostapd`
+
+Then stop and deactivate *dnsmasq* and *hostapd* services:
+
+```
+systemctl stop dnsmasq
+systemctl stop hostapd
+systemctl disable dnsmasq
+systemctl disable hostapd
+```
+They will later only be activated if there is no known WiFi-AP nearby.
+
+Since Chromium is the standardbrowser in Raspian Buster it doesn't have to be installed...
+
+# Configuration
 
 ## RaspberryPi
+To make this running, there are only a few modifications to make in Raspian
+### System settings
+Use `raspi-config` in console or the graphical counterpart for the following settings:
+- System
+  - set the hostname as you wish
+  - boot to desktop
+  - automatically login as "pi"
+  - DO NOT wait for network at boot
+- Interfaces
+  - activate camera
+- Performance
+  - make sure your GPU can breathe by giving it 128 or more MB RAM
+- Localisation
+  - set your locales as you need it
+
+### Configure WiFi-AP
+
+
+
+### Configure LXDE/Chromium to autostart in kiosk-mode
 
 ## Node-Red
