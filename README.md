@@ -17,10 +17,21 @@ Installationsanweisung und Konfigurationsbackup für einen Jitsi-Client zur Übe
 - dnsmasq
 - hostapd
 
-## Installation
+# Installation
+Image "Raspbian Buster with desktop" von RaspberryPi.org beziehen und auf die SD-Karte bringen. SD-Karte einlegen, System starten und mit dem Internet verbinden.
+Anschließend das System aktualisieren.
 
-## Konfiguration
+Zusätzliche Software installieren:
 
-### RaspberryPi
+`apt-get install -y unclutter dnsmasq hostapd`
 
-### Node-Red
+Anschließend *dnsmasq* und *hostapd* Services deaktivieren:
+
+`systemctl disable dnsmasq
+systemctl disable hostapd`
+
+# Konfiguration
+
+## RaspberryPi
+
+## Node-Red
